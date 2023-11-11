@@ -5,6 +5,7 @@
 // @description  Lab_4
 // @author       You
 // @match        https://cripto.tiiny.site/
+// @match        https://coffee-ania-77.tiiny.site/
 // @grant        none
 // @require      https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js#sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ==
 // ==/UserScript==
@@ -23,7 +24,6 @@
     //considera los primeros 24 bytes 3des:
     const parsed_key = CryptoJS.enc.Utf8.parse(key.substr(0, 24));
 
-
     var divElements = document.querySelectorAll('div');
     var id_values = [];
 
@@ -34,7 +34,7 @@
     });
 
     id_values.forEach(curr => {
-        const decryptedId = CryptoJS.TripleDES.decrypt(curr, parsed_key, {mode: CryptoJS.mode.ECB});
+      const decryptedId = CryptoJS.TripleDES.decrypt(curr, parsed_key, {mode: CryptoJS.mode.ECB});
 
         console.log(`${curr}  ${decryptedId.toString(CryptoJS.enc.Utf8)}`);
         const newPTag = document.createElement('p');
